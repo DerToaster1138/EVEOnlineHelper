@@ -11,16 +11,50 @@ namespace EVEMarketeer_Console
 {
     class ESIRunner
     {
-        public void Run(string url) 
+        public string Run(string url)
         {
-            System.Net.WebClient client = new System.Net.WebClient();
-            string data = client.DownloadString(url);
+            using (System.Net.WebClient client = new System.Net.WebClient()) 
+            {
+                string data = client.DownloadString(url);
+                return data;
+            }
         }
 
-        public void UrlConstructor() 
+        public string MarketUrl()
         {
-            string url = "https://esi.evetech.net/latest/";
-            url += "";
+            string marketurl = "https://esi.evetech.net/latest/markets/";
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Welcome to the Marketchecker");
+            Console.WriteLine("Please enter the [RegionID] you'd like to check");
+            Console.ForegroundColor = ConsoleColor.White;
+            string regionID = Console.ReadLine();
+            marketurl += regionID + "/orders/?datasource=tranquility&order_type=";
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Do you want to Filter for for only [S]ell, [B]uy, or viel [A]ll orders?");
+            ConsoleKeyInfo pressed = Console.ReadKey(true);
+            string ordertype = "";
+            switch (pressed.Key)
+            {
+                case ConsoleKey.S:
+                    ordertype = "sell";
+                    break;
+
+                case ConsoleKey.B:
+                    ordertype = "buy";
+                    break;
+
+                case ConsoleKey.A:
+                    ordertype = "all";
+                    break;
+            }
+            Console.WriteLine("Please enter the TypeID of the item you'd like to check (Optional)");
+            Console.ForegroundColor = ConsoleColor.White;
+            string typeid = Console.ReadLine();
+            int pagenum = 1;
+            marketurl += ordertype + "&page=" + pagenum + "&type_id=" + typeid;
+            string data = Run(marketurl);
+            return data;
+
         }
     }
 }

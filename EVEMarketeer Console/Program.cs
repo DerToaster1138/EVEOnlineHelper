@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,13 @@ namespace EVEMarketeer_Console
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Creds();
             Spacer(2);
             StartInfo();
             ParseCommand();
-
         }
 
         public static void Creds()
@@ -51,7 +52,7 @@ namespace EVEMarketeer_Console
 
         public static void ParseCommand()
         {
-            ConsoleKeyInfo pressed = Console.ReadKey();
+            ConsoleKeyInfo pressed = Console.ReadKey(true);
             switch(pressed.Key)
             {
 
@@ -60,7 +61,8 @@ namespace EVEMarketeer_Console
                     break;
 
                 case ConsoleKey.M:
-                    //implement marketChecker
+                    ESIRunner runner = new ESIRunner();
+                    Console.WriteLine(runner.MarketUrl());
                     break;
 
                 case ConsoleKey.T:
@@ -68,7 +70,13 @@ namespace EVEMarketeer_Console
                     break;
 
                 case ConsoleKey.F9:
-                    Console.Beep(2000, 5);
+                    Console.Beep(220, 250);
+                    Console.Beep(247, 250);
+                    Console.Beep(262, 250);
+                    Console.Beep(294, 250);
+                    Console.Beep(330, 250);
+                    Console.Beep(349, 250);
+                    Console.Beep(392, 250);
                     break;
             }
             if (pressed.Key != ConsoleKey.Escape)

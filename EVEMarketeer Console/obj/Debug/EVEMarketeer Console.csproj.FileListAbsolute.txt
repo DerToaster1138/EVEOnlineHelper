@@ -5,3 +5,10 @@ C:\Users\Admin36c8a5c787\Documents\Visual Studio 2019\EVE\EVEMarketeer Console\o
 C:\Users\Admin36c8a5c787\Documents\Visual Studio 2019\EVE\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.csproj.CoreCompileInputs.cache
 C:\Users\Admin36c8a5c787\Documents\Visual Studio 2019\EVE\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.exe
 C:\Users\Admin36c8a5c787\Documents\Visual Studio 2019\EVE\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.pdb
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\bin\Debug\EVEMarketeer Console.exe.config
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\bin\Debug\EVEMarketeer Console.exe
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\bin\Debug\EVEMarketeer Console.pdb
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.csproj.AssemblyReference.cache
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.csproj.CoreCompileInputs.cache
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.exe
+C:\Users\jadre\source\repos\EVEOnlineHelper\EVEMarketeer Console\obj\Debug\EVEMarketeer Console.pdb
