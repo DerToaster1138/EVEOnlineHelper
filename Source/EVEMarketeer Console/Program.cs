@@ -20,7 +20,7 @@ namespace EVEMarketeer_Console
 
         public static void Creds()
         {
-            Console.Title = "EVE ONLINE CONSOLE V0.1";
+            Console.Title = "EVE ONLINE CONSOLE V0.15";
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("EVEOnline Helper");
             Console.WriteLine("By DerToaster1138/Tanam Rotsuda");
