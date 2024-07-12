@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="EVEClassLibrary">
-      <HintPath>..\EVEClassLibrary\bin\Debug\net8.0\EVEClassLibrary.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\EVEClassLibrary\EVEClassLibrary\EVEClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>

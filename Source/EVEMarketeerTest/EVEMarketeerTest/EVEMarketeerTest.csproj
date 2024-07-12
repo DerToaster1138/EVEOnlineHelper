@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -17,12 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="EVEClassLibrary">
-      <HintPath>..\EVEClassLibrary\bin\Debug\net8.0\EVEClassLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="EVEMarketeer Console">
-      <HintPath>..\..\EVE\Source\EVEMarketeer Console\bin\Debug\EVEMarketeer Console.exe</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\EVEClassLibrary\EVEClassLibrary\EVEClassLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
