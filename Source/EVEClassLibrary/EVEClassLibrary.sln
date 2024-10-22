@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEClassLibrary", "EVEClassLibrary.csproj", "{11075D7E-B917-4230-91EA-7B711F6316EE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eve Console Tester", "..\Eve Console Tester\Eve Console Tester.csproj", "{88E12E17-5EB2-462B-B651-73E6AFD9DC72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11075D7E-B917-4230-91EA-7B711F6316EE} = {11075D7E-B917-4230-91EA-7B711F6316EE}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEMarketeerTest", "..\EVEMarketeerTest\EVEMarketeerTest.csproj", "{B94B5A20-3980-4849-B029-894A32461E84}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11075D7E-B917-4230-91EA-7B711F6316EE} = {11075D7E-B917-4230-91EA-7B711F6316EE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

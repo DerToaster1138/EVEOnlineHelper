@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime;
+using System.Reflection;
 using System.IO;
 using Newtonsoft;
 
@@ -26,10 +27,13 @@ namespace EVEClassLibrary
         /// </summary>
         public static void Creds()
         {
-            Console.Title = "EVE ONLINE CONSOLE V0.16";
+            System.Type type = typeof(ConsoleMain);
+
+            string Author = type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+            Console.Title = type.Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+            
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("EVEOnline Helper");
-            Console.WriteLine("By DerToaster1138/Tanam Rotsuda");
+            Console.WriteLine(Author);
             Console.WriteLine("DO NOT REDISTRIBUTE");
             Console.WriteLine("Work in progress");
             Console.ForegroundColor = ConsoleColor.White;

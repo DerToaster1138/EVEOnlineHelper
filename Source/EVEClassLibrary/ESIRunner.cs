@@ -105,6 +105,9 @@ namespace EVEClassLibrary
                 case ConsoleKey.A:
                     ordertype = "all";
                     break;
+
+                default:
+                    break;
             }
             Console.WriteLine("Please enter the TypeID of the item you'd like to check (Optional)");
             Console.ForegroundColor = ConsoleColor.White;

@@ -5,13 +5,13 @@ namespace EVEMarketeerTest
 {
 
     [TestClass]
-    public class JSONTester 
+    public class JSONRipperTests
     {
         /// <summary>
         /// Test for JSON deserializing
         /// </summary>
         [TestMethod]
-        public void JSONFormatTest()
+        public void formatter_working()
         {
             //Arrange
             EVEClassLibrary.JSONRipper ripper = new JSONRipper();
