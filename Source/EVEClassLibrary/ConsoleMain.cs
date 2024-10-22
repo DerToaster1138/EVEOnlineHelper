@@ -29,11 +29,14 @@ namespace EVEClassLibrary
         {
             System.Type type = typeof(ConsoleMain);
 
-            string Author = type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
-            Console.Title = type.Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
+            string Author =  type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+            Console.Title =  type.Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
+            string version = type.Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version.ToString();
+
             
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine(Author);
+            Console.WriteLine($"written by {Author}");
+            Console.WriteLine($"Beta {version}");
             Console.WriteLine("DO NOT REDISTRIBUTE");
             Console.WriteLine("Work in progress");
             Console.ForegroundColor = ConsoleColor.White;
