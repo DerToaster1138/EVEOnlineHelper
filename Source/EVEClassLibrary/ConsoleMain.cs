@@ -30,7 +30,7 @@ namespace EVEClassLibrary
             System.Type type = typeof(ConsoleMain);
 
             string Author = type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
-            Console.Title = type.Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+            Console.Title = type.Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
             
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(Author);
