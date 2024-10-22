@@ -95,7 +95,7 @@ namespace EVEClassLibrary
                     break;
 
                 case ConsoleKey.T:
-                    //implement Type Checker
+                    //TODO 1: implement Type Checker
                     break;
 
                 case ConsoleKey.F9:
