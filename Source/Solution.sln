@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eve Console Tester", "..\Eve Console Tester\Eve Console Tester\Eve Console Tester.csproj", "{1F1AA614-422E-4AD4-A747-AF554551CD5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eve Console Tester", "Eve Console Tester\Eve Console Tester.csproj", "{1F1AA614-422E-4AD4-A747-AF554551CD5B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEClassLibrary", "..\EVEClassLibrary\EVEClassLibrary\EVEClassLibrary.csproj", "{0F9BE573-764C-4C83-9A46-B77D5EC6B13B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEClassLibrary", "EVEClassLibrary\EVEClassLibrary.csproj", "{0F9BE573-764C-4C83-9A46-B77D5EC6B13B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEMarketeerTest", "..\EVEMarketeerTest\EVEMarketeerTest\EVEMarketeerTest.csproj", "{E8D5A0F8-B515-4AAC-A841-65732BDC2C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEMarketeerTest", "EVEMarketeerTest\EVEMarketeerTest.csproj", "{E8D5A0F8-B515-4AAC-A841-65732BDC2C41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
