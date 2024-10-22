@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	<Copyright>Direx94 and DerToaster1138 "Tanam Rotsuda"</Copyright>
+	<Title>EVE Online Helper</Title>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <OutputType>Library</OutputType>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageId>$(AssemblyTitle)</PackageId>
+    <Product>EVE Online Helper</Product>
+	  <AssemblyVersion>0.0.16.5</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EVEClassLibrary\**" />
+    <EmbeddedResource Remove="EVEClassLibrary\**" />
+    <None Remove="EVEClassLibrary\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 # EVEOnlineHelper
 Utility Library for the Video Game EVE Online by CCP Games.
 
-Icludes a Marketscanner and Marketorder based Display
+Includes a Marketscanner and Marketorder based Display
 
 To Come:
 
