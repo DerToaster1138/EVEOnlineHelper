@@ -58,6 +58,9 @@ namespace EVEClassLibrary
 
                 JSONRipper fmt = new JSONRipper();
                 List<MarketListing> orders = fmt.MarketDataScraper(data);
+                MarketListing reference = orders.First();
+                string typeID = reference.typeID;
+                Console.WriteLine($"Displaying Data for Type Id {typeID}");
                 string ret = "";
 
                 // List all Orders after another as part of the return String
