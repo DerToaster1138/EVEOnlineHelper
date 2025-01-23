@@ -76,7 +76,6 @@ namespace EVEClassLibrary
             ret += systemID + "\t";
             ret += locationID + "\t";
             ret += orderID + "\t";
-            ret += typeID + "\t";
             ret += price + "\t";
             ret += minV + "\t";
             ret += volumeRemaining + "\t";
