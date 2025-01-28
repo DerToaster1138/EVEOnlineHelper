@@ -1,17 +1,6 @@
-﻿using System;
-using System.Runtime;
-using System.Collections.Generic;
-using System.Formats.Asn1;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft;
-using Newtonsoft.Json;
-using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel;
-using System.Text.Json;
-using System.Runtime.InteropServices.JavaScript;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace EVEClassLibrary
 {
@@ -126,7 +115,6 @@ namespace EVEClassLibrary
         public TypeInformation TypeInformationScraper(string _typeDataStream) 
         {
             TypeInformation ret = new TypeInformation();
-            Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
 
             JsonReader reader = new JsonTextReader(new StringReader(_typeDataStream));
             try
