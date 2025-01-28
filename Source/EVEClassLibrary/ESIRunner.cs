@@ -205,10 +205,9 @@ namespace EVEClassLibrary
 
             //parse Data
             type = this.ripper.typeInformationScraper(ret);
-            //print data
-            // TODO: ToString return into ret
-            type.ToString();
-            return ret;
+           
+            //return Data
+            return type.ToString();
 
         }
     }

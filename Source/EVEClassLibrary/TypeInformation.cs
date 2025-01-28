@@ -125,39 +125,39 @@ namespace EVEClassLibrary
         /// <summary>
         /// Custom ToString for Console Output
         /// </summary>
-        public new void ToString() 
+        public override string ToString() 
         {
-            // TODO: Make this into a tring builder instead of feeding the console directly
-
-            Console.WriteLine("\n \nName: " + name);
-            Console.WriteLine("TypeID: " + type_id);
-            Console.WriteLine("Description: \n\n" + description);
-            Console.WriteLine("\nMass: " + mass);
-            Console.WriteLine("Volume: " + volume);
+            string ret ="";
+            ret +="\n \nName: "         + name;
+            ret +="\nTypeID: "            + type_id;
+            ret +="\nDescription: \n\n"   + description;
+            ret +="\n\nMass: "            + mass;
+            ret +="\nVolume: "            + volume;
 
             if (radius != 0) 
             {
-                Console.WriteLine("Radius: " + radius);
+                ret +="\nRadius: "        + radius;
             }
 
-            Console.WriteLine("Packaged Volume: " + packaged_volume);
+            ret +="\nPackaged Volume: "   + packaged_volume;
 
             if(portion_size != 0) 
             {
-                Console.WriteLine("Portion Size: " + portion_size);
+                ret +="\nPortion Size: "  + portion_size;
             }
 
             if(capacity != 0) 
             {
-                Console.WriteLine("Capacity: " + capacity);
+                ret +="\nCapacity: "      + capacity;
             }
 
-            Console.WriteLine("\n \nMisc Information:\nGraphic ID: " + graphic_id);
-            Console.WriteLine("Icon ID: " + icon_id);
-            Console.WriteLine("Group ID: " + group_id);
-            Console.WriteLine("Marketgroup ID: " + market_group_id);
-            Console.WriteLine("Is it Live: " + published);
+            ret +="\n \nMisc Information:\nGraphic ID: " + graphic_id;
+            ret +="\nIcon ID: "           + icon_id;
+            ret +="\nGroup ID: "          + group_id;
+            ret +="\nMarketgroup ID: "    + market_group_id;
+            ret +="\nIs it Live: "        + published;
 
+            return ret;
         }
     }
 }
