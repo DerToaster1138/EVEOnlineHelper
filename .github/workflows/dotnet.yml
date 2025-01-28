@@ -32,12 +32,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: Source
-
-  publish:
-
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Publish Build Artifacts
       run: dotnet publish Solution.sln --configuration Release --output ./publish --runtime win-x64
       working-directory: Source
@@ -45,4 +39,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: Source/publish/
+        path: Source/publish
+
