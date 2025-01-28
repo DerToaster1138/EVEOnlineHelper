@@ -34,7 +34,7 @@ namespace EVEClassLibrary
         /// <summary>
         /// Unique Order ID
         /// </summary>
-        public string orderID ="";
+        public string orderID    = "";
         /// <summary>
         /// Price in ISK
         /// </summary>
