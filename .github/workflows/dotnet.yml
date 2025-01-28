@@ -26,9 +26,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore 
       working-directory: Source
-    - name: Install dependencies
-      run: dotnet add package Newtonsoft.Json --version 12.0.1
-      working-directory: Source/EVEClassLibrary
     - name: Build
       run: dotnet build --no-restore
       working-directory: Source
