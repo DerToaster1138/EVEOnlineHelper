@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EVEClassLibrary
 {
@@ -61,8 +62,7 @@ namespace EVEClassLibrary
                 {
                 }
 
-                JSONRipper fmt = new JSONRipper();
-                List<MarketListing> orders = fmt.MarketDataScraper(data);
+                List<MarketListing> orders = ripper.marketDataScraper(data);
                 MarketListing reference = orders.First();
                 string typeID = reference.typeID;
                 Console.WriteLine($"Displaying Data for Type Id {typeID}");
@@ -177,6 +177,39 @@ namespace EVEClassLibrary
             }
 
             return ret;
+        }
+        // TODO: finish Comments and organize that stuff
+        /// <summary>
+        /// Builds a usable URL for the TypeCheck RestAPI of SwaggerInterface
+        /// </summary>
+        /// <returns>TypeCheck URL to SwaggerAPI</returns>
+        public string TypeCheck()
+        {
+            //Set color to green, as destinctive Coloration
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Please enter the TypeID you want to check for:");
+
+            //Create empty Class Object
+            TypeInformation type;
+            string typeId = Console.ReadLine();
+
+            //format URL
+            string ret = "https://esi.evetech.net/latest/universe/types/";
+            ret += typeId;
+            ret += "/?datasource=tranquility&language=en";
+
+            //grab Data
+            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient()) 
+            {
+                ret = client.GetStringAsync(ret).Result;
+            }
+
+            //parse Data
+            type = this.ripper.TypeInformationScraper(ret);
+           
+            //return Data
+            return type.ToString();
+
         }
     }
 }

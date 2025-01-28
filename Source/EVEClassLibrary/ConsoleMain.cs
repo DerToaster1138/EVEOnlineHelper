@@ -80,7 +80,7 @@ namespace EVEClassLibrary
         /// </summary>
         public static void ParseCommand()
         {
-
+            ESIRunner runner = new ESIRunner();
             ConsoleKeyInfo pressed = Console.ReadKey(true);
             try
             {
@@ -92,14 +92,15 @@ namespace EVEClassLibrary
                         StartInfo();
                         break;
 
-                    case ConsoleKey.M:
-                        ESIRunner runner = new ESIRunner();
-                        Console.WriteLine(runner.MarketUrl());
-                        break;
+                case ConsoleKey.M:
+                    Console.WriteLine(runner.MarketUrl());
+                    break;
 
-                    case ConsoleKey.T:
-                        //TODO 1: implement Type Checker
-                        break;
+                case ConsoleKey.T:
+                    Console.WriteLine(runner.TypeCheck());
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Returning to Main");
+                    break;
 
                     case ConsoleKey.F9:
                         if (System.OperatingSystem.IsWindows())
