@@ -29,11 +29,11 @@ namespace EVEClassLibrary
         {
             System.Type type = typeof(ConsoleMain);
 
-            string Author =  type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
-            Console.Title =  type.Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
+            string Author = type.Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+            Console.Title = type.Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
             string version = type.Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version.ToString();
 
-            
+
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine($"written by {Author}");
             Console.WriteLine($"Beta {version}");
@@ -80,36 +80,44 @@ namespace EVEClassLibrary
         /// </summary>
         public static void ParseCommand()
         {
+
             ConsoleKeyInfo pressed = Console.ReadKey(true);
-            switch (pressed.Key)
+            try
             {
+                switch (pressed.Key)
+                {
 
-                case ConsoleKey.C:
-                    ClearScreen();
-                    StartInfo();
-                    break;
+                    case ConsoleKey.C:
+                        ClearScreen();
+                        StartInfo();
+                        break;
 
-                case ConsoleKey.M:
-                    ESIRunner runner = new ESIRunner();
-                    Console.WriteLine(runner.MarketUrl());
-                    break;
+                    case ConsoleKey.M:
+                        ESIRunner runner = new ESIRunner();
+                        Console.WriteLine(runner.MarketUrl());
+                        break;
 
-                case ConsoleKey.T:
-                    //TODO 1: implement Type Checker
-                    break;
+                    case ConsoleKey.T:
+                        //TODO 1: implement Type Checker
+                        break;
 
-                case ConsoleKey.F9:
-                    if (System.OperatingSystem.IsWindows())
-                    {
-                        Console.Beep(220, 250);
-                        Console.Beep(247, 250);
-                        Console.Beep(262, 250);
-                        Console.Beep(294, 250);
-                        Console.Beep(330, 250);
-                        Console.Beep(349, 250);
-                        Console.Beep(392, 250);
-                    }
-                    break;
+                    case ConsoleKey.F9:
+                        if (System.OperatingSystem.IsWindows())
+                        {
+                            Console.Beep(220, 250);
+                            Console.Beep(247, 250);
+                            Console.Beep(262, 250);
+                            Console.Beep(294, 250);
+                            Console.Beep(330, 250);
+                            Console.Beep(349, 250);
+                            Console.Beep(392, 250);
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An Unkown Error occured: " + ex.ToString());
             }
             if (pressed.Key != ConsoleKey.Escape)
             {
@@ -119,6 +127,7 @@ namespace EVEClassLibrary
             {
                 Console.WriteLine("Exiting");
             }
+
 
         }
     }
