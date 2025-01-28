@@ -81,7 +81,7 @@ namespace EVEClassLibrary
         /// <summary>
         /// Constructor for TypeInformation
         /// </summary>
-        public TypeInformation(JToken _typeData) 
+        public TypeInformation(JToken _typeData)
         {
             this.capacity        = _typeData.Value<float>("capacity");
             this.description     = _typeData.Value<string>("description");
@@ -97,18 +97,67 @@ namespace EVEClassLibrary
             this.radius          = _typeData.Value<float>("radius");
             this.type_id         = _typeData.Value<int>("type_id");
             this.volume          = _typeData.Value<float>("volume");
+            this.description = descriptionNicyfier();
         }
+
+        /// <summary>
+        /// Removes unusable XML References from returned Description
+        /// </summary>
+        /// <returns> newly formatted Description</returns>
+        private string descriptionNicyfier() 
+        {
+            string? newDescription = this.description;
+            if (newDescription == null) 
+            {
+                return "No Description found on Server";
+            }
+            while (newDescription.Contains(">")) 
+            {
+                int start = newDescription.IndexOf("<");
+                int end = newDescription.IndexOf(">");
+                int count = end - start + 1;
+                newDescription = newDescription.Remove(start, count);
+            }
+
+            return newDescription;
+        }
+
         /// <summary>
         /// Custom ToString for Console Output
         /// </summary>
         public new void ToString() 
         {
+            // TODO: Make this into a tring builder instead of feeding the console directly
+
             Console.WriteLine("\n \nName: " + name);
-            Console.WriteLine("Description: \n" + description);
-            Console.WriteLine("Mass: " + mass);
+            Console.WriteLine("TypeID: " + type_id);
+            Console.WriteLine("Description: \n\n" + description);
+            Console.WriteLine("\nMass: " + mass);
             Console.WriteLine("Volume: " + volume);
+
+            if (radius != 0) 
+            {
+                Console.WriteLine("Radius: " + radius);
+            }
+
             Console.WriteLine("Packaged Volume: " + packaged_volume);
-            // TODO 1: Add remaining information Lines ASAP
+
+            if(portion_size != 0) 
+            {
+                Console.WriteLine("Portion Size: " + portion_size);
+            }
+
+            if(capacity != 0) 
+            {
+                Console.WriteLine("Capacity: " + capacity);
+            }
+
+            Console.WriteLine("\n \nMisc Information:\nGraphic ID: " + graphic_id);
+            Console.WriteLine("Icon ID: " + icon_id);
+            Console.WriteLine("Group ID: " + group_id);
+            Console.WriteLine("Marketgroup ID: " + market_group_id);
+            Console.WriteLine("Is it Live: " + published);
+
         }
     }
 }

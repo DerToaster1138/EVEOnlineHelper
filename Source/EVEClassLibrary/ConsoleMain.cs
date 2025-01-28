@@ -95,7 +95,10 @@ namespace EVEClassLibrary
                     break;
 
                 case ConsoleKey.T:
-                    runner.typeCheck();
+                    // TODO: Console print this here
+                    runner.TypeCheck();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Returning to Main");
                     break;
 
                 case ConsoleKey.F9:
