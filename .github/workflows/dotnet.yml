@@ -32,3 +32,11 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: Source
+    - name: Publish Build Artifacts
+      run: dotnet publish Solution.sln --configuration Release --output ./publish
+      working-directory: Source
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: Source/publish/
