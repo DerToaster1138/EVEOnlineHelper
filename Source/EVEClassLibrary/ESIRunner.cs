@@ -14,11 +14,16 @@ namespace EVEClassLibrary
     /// </summary>
     public class ESIRunner
     {
+        /// <summary>
+        /// Openly usable Ripper instance
+        /// </summary>
+        public JSONRipper ripper = new JSONRipper();
 
         /// <summary>
         /// Communication Method for the ESI
         /// </summary>
         /// <param name="url">The required properly formatted API Request URL</param>
+        /// <param name="page">Page from where to start the search</param>
         /// <returns>the JSON formatted response</returns>
         public string MarketRun(string url, int page = 0)
         {
@@ -51,7 +56,7 @@ namespace EVEClassLibrary
                     pages = count;
                 }
 
-                // blank catch block, becuase noone stops me
+                // blank catch block, because noone stops me
                 catch
                 {
                 }
