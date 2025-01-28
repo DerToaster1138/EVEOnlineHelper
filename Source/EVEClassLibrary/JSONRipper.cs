@@ -9,6 +9,9 @@ using Newtonsoft;
 using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel;
+using System.Text.Json;
+using System.Runtime.InteropServices.JavaScript;
+using Newtonsoft.Json.Linq;
 
 namespace EVEClassLibrary
 {
@@ -39,13 +42,13 @@ namespace EVEClassLibrary
         /// </summary>
         /// <param name="_marketdata"></param>
         /// <returns></returns>
-        public List<MarketListing> MarketDataScraper(string _marketdata)
+        public List<MarketListing> marketDataScraper(string _marketdata)
         {
             if (!string.IsNullOrEmpty(_marketdata))
             {
                 List<MarketListing> orders = new List<MarketListing>();
                 JsonReader reader = new JsonTextReader(new StringReader(_marketdata));
-                JsonSerializer serializer = new JsonSerializer();
+                Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
 
                 MarketListing order = null;
 
@@ -113,6 +116,29 @@ namespace EVEClassLibrary
                 List<MarketListing> orders = new List<MarketListing>();
                 return orders;
             }
+        }
+
+        /// <summary>
+        /// Converts the JSON Data into a TypeInformation Object
+        /// </summary>
+        /// <param name="_typeDataStream">JSON Data from Swagger Api as string</param>
+        /// <returns>TypeInformation Object</returns>
+        public TypeInformation typeInformationScraper(string _typeDataStream) 
+        {
+            TypeInformation ret = new TypeInformation();
+            Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
+
+            JsonReader reader = new JsonTextReader(new StringReader(_typeDataStream));
+            try
+            {
+                JToken JSONData = JObject.ReadFrom(reader);
+                ret = new TypeInformation(JSONData);
+            }
+            catch 
+            {
+                Console.WriteLine("Something went wrong while Parsing from JSON to TypeInformation. Returning to Main");
+            }
+            return ret;
         }
     }
 }

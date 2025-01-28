@@ -14,6 +14,10 @@ namespace EVEClassLibrary
     /// </summary>
     public class ESIRunner
     {
+        public JSONRipper ripper = new JSONRipper();
+        /// <summary>
+        /// Standard Constructor
+        /// </summary>
 
         /// <summary>
         /// Communication Method for the ESI
@@ -56,8 +60,7 @@ namespace EVEClassLibrary
                 {
                 }
 
-                JSONRipper fmt = new JSONRipper();
-                List<MarketListing> orders = fmt.MarketDataScraper(data);
+                List<MarketListing> orders = ripper.marketDataScraper(data);
                 MarketListing reference = orders.First();
                 string typeID = reference.typeID;
                 Console.WriteLine($"Displaying Data for Type Id {typeID}");
@@ -172,6 +175,33 @@ namespace EVEClassLibrary
             }
 
             return ret;
+        }
+        // TODO: finish Comments and organize that stuff
+        /// <summary>
+        /// Builds a usable URL for the TypeCheck RestAPI of SwaggerInterface
+        /// </summary>
+        /// <returns>TypeCheck URL to SwaggerAPI</returns>
+        public string typeCheck()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Please enter the TypeID you want to check for:");
+
+            TypeInformation type;
+            string typeId = Console.ReadLine();
+
+            string ret = "https://esi.evetech.net/latest/universe/types/";
+            ret += typeId;
+            ret += "/?datasource=tranquility&language=en";
+
+            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient()) 
+            {
+                ret = client.GetStringAsync(ret).Result;
+            }
+
+            type = this.ripper.typeInformationScraper(ret);
+            type.ToString();
+            return ret;
+
         }
     }
 }
