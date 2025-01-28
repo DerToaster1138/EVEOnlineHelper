@@ -111,10 +111,10 @@ namespace EVEClassLibrary
             {
                 return "No Description found on Server";
             }
-            while (newDescription.Contains(">")) 
+            while (newDescription.Contains('>')) 
             {
-                int start = newDescription.IndexOf("<");
-                int end = newDescription.IndexOf(">");
+                int start = newDescription.IndexOf('<');
+                int end = newDescription.IndexOf('>');
                 int count = end - start + 1;
                 newDescription = newDescription.Remove(start, count);
             }

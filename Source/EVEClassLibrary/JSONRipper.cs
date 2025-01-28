@@ -123,7 +123,7 @@ namespace EVEClassLibrary
         /// </summary>
         /// <param name="_typeDataStream">JSON Data from Swagger Api as string</param>
         /// <returns>TypeInformation Object</returns>
-        public TypeInformation typeInformationScraper(string _typeDataStream) 
+        public TypeInformation TypeInformationScraper(string _typeDataStream) 
         {
             TypeInformation ret = new TypeInformation();
             Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
