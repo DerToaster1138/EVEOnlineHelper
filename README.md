@@ -6,9 +6,10 @@ Currently its a ***Console App***, but the Class Library is on its way to be usa
 
 ## Currently Implemented
 - Marketscanner for the Major Tradehubs (Jita, Amarr, etc)
+- TypeInformation Screen
 
 ## In Development:
-- TypeInformation Screen
+- Integration of SQLite for saving Marketdata
 
 ## Next on the Roadmap
 - Information Screen filtering for Systems Stations and Corperations.
@@ -24,3 +25,12 @@ If you *somehow* find this Repo 1) congrats, how did you get here?? 2) dont worr
 
 TLDR;
 This is just Madness that i randomly do
+
+# How to Contribute
+If you would like to help with the Tool, or are interested in the Tool, feel free to fork the repo and create a pull request, it would be great training for me to get some reviews and other feedback.
+
+If you want to be part of the Crew thatll get the tool and more features in the future, you can always apply to the [WE -DONT- CARE](https://evewho.com/corporation/98588072) Corporation
+
+## Current assisting Capsuleers
+[Tanam Rotsuda](https://evewho.com/character/2115481082)
+[DiRex](https://evewho.com/character/2118117080)
