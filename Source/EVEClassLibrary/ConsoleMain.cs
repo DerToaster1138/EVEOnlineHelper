@@ -14,6 +14,9 @@ namespace EVEClassLibrary
     {
         public static ESIRunner esirunner = new ESIRunner();
 
+        /// <summary>
+        /// Standard Constructor
+        /// </summary>
         public ConsoleMain() 
         {
         }
@@ -141,6 +144,10 @@ namespace EVEClassLibrary
 
         }
 
+        /// <summary>
+        /// Console Output for Tradehubs, used in MarketCheck
+        /// </summary>
+        /// <returns>int of the Tradehub</returns>
         public static int TradehubIDMap()
         {
             int ret;
@@ -155,6 +162,9 @@ namespace EVEClassLibrary
             return ret;
         }
 
+        /// <summary>
+        /// Starts the MarketCheck functions
+        /// </summary>
         public static void MarketCheck()
         {
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -162,6 +172,10 @@ namespace EVEClassLibrary
             Console.WriteLine("Do you want to Filter for for only [S]ell, [B]uy, or viel [A]ll orders?");
         }
 
+        /// <summary>
+        /// Check for TypeID
+        /// </summary>
+        /// <returns>The TypeID as string</returns>
         public static string getTypeIDInput() 
         {
             string typeID;

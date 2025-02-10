@@ -1,12 +1,4 @@
-﻿using System;
-using System.Runtime;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics.CodeAnalysis;
-
-namespace EVEClassLibrary
+﻿namespace EVEClassLibrary
 {
     /// <summary>
     /// Class for Communication with the EVE Swagger API
@@ -20,6 +12,9 @@ namespace EVEClassLibrary
         /// </summary>
         public JSONRipper ripper;
 
+        /// <summary>
+        /// Standard Constructor
+        /// </summary>
         public ESIRunner()
         {
             ripper = new JSONRipper();
@@ -107,7 +102,10 @@ namespace EVEClassLibrary
         }
 
 
-
+        /// <summary>
+        /// Creates the basic Marketcheck URL and adds Tradehub ID
+        /// </summary>
+        /// <returns>Partial MarketCheck URL with TradeHub ID imbedded</returns>
         public string MakeTradehubMarketUrl() 
         {
             string marketurl = "https://esi.evetech.net/latest/markets/";
@@ -116,6 +114,11 @@ namespace EVEClassLibrary
             return marketurl;
         }
 
+
+        /// <summary>
+        /// Console input request for MarketOrder Type
+        /// </summary>
+        /// <returns>The Market Order Type as String</returns>
         public string OrderTypeInput() 
         {
             ConsoleKeyInfo pressed = Console.ReadKey(true);
