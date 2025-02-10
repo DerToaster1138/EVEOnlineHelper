@@ -155,7 +155,7 @@ namespace EVEClassLibrary
             ret +="\nIcon ID: "           + icon_id;
             ret +="\nGroup ID: "          + group_id;
             ret +="\nMarketgroup ID: "    + market_group_id;
-            ret +="\nIs it Live: "        + published;
+            ret +="\nActive Item: "        + published;
 
             return ret;
         }
