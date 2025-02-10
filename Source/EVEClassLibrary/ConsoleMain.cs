@@ -3,6 +3,7 @@ using System.Runtime;
 using System.Reflection;
 using System.IO;
 using Newtonsoft;
+using System.Runtime.CompilerServices;
 
 namespace EVEClassLibrary
 {
@@ -11,6 +12,11 @@ namespace EVEClassLibrary
     /// </summary>
     public class ConsoleMain
     {
+        public static ESIRunner esirunner = new ESIRunner();
+
+        public ConsoleMain() 
+        {
+        }
         /// <summary>
         /// Initializing Console
         /// </summary>
@@ -80,7 +86,6 @@ namespace EVEClassLibrary
         /// </summary>
         public static void ParseCommand()
         {
-            ESIRunner runner = new ESIRunner();
             ConsoleKeyInfo pressed = Console.ReadKey(true);
             try
             {
@@ -92,15 +97,19 @@ namespace EVEClassLibrary
                         StartInfo();
                         break;
 
-                case ConsoleKey.M:
-                    Console.WriteLine(runner.MarketUrl());
-                    break;
+                    case ConsoleKey.M:
+                        MarketCheck();
+                        Console.WriteLine(esirunner.MarketUrl());
+                        break;
 
-                case ConsoleKey.T:
-                    Console.WriteLine(runner.TypeCheck());
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Returning to Main");
-                    break;
+                    case ConsoleKey.T:
+                        //Set color to green, as destinctive Coloration
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Please enter the TypeID you want to check for:");
+                        Console.WriteLine(esirunner.TypeCheck());
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Returning to Main");
+                        break;
 
                     case ConsoleKey.F9:
                         if (System.OperatingSystem.IsWindows())
@@ -131,5 +140,35 @@ namespace EVEClassLibrary
 
 
         }
+
+        public static int TradehubIDMap()
+        {
+            int ret;
+            Console.WriteLine("Please Select the Region you'd like to check");
+            Console.WriteLine("[J]ita");
+            Console.WriteLine("[A]marr");
+            Console.WriteLine("[T]ash-Murkon");
+            Console.WriteLine("[R]ens");
+            ConsoleKeyInfo pressed = Console.ReadKey(true);
+            ret = esirunner.KeyToTradehub(pressed.Key);
+
+            return ret;
+        }
+
+        public static void MarketCheck()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Welcome to the Marketchecker");
+            Console.WriteLine("Do you want to Filter for for only [S]ell, [B]uy, or viel [A]ll orders?");
+        }
+
+        public static string getTypeIDInput() 
+        {
+            string typeID;
+            Console.WriteLine("Please enter the TypeID of the requested Item");
+            typeID = Console.ReadLine();
+            return typeID;
+        }
+
     }
 }

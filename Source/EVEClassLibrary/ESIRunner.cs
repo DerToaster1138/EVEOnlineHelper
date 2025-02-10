@@ -18,7 +18,12 @@ namespace EVEClassLibrary
         /// <summary>
         /// Openly usable Ripper instance
         /// </summary>
-        public JSONRipper ripper = new JSONRipper();
+        public JSONRipper ripper;
+
+        public ESIRunner()
+        {
+            ripper = new JSONRipper();
+        }
 
         /// <summary>
         /// Communication Method for the ESI
@@ -65,7 +70,6 @@ namespace EVEClassLibrary
                 List<MarketListing> orders = ripper.marketDataScraper(data);
                 MarketListing reference = orders.First();
                 string typeID = reference.typeID;
-                Console.WriteLine($"Displaying Data for Type Id {typeID}");
                 string ret = "";
 
                 // List all Orders after another as part of the return String
@@ -91,13 +95,29 @@ namespace EVEClassLibrary
         /// <returns>The properly Formatted Market Check URL for ESI</returns>
         public string MarketUrl()
         {
+            string marketurl = MakeTradehubMarketUrl();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            string ordertype = OrderTypeInput();
+            Console.ForegroundColor = ConsoleColor.White;
+            string typeid = ConsoleMain.getTypeIDInput();
+            int pagenum = 1;
+            marketurl += ordertype + "&page=" + pagenum + "&type_id=" + typeid;
+            string data = MarketRun(marketurl);
+            return data;
+        }
+
+
+
+        public string MakeTradehubMarketUrl() 
+        {
             string marketurl = "https://esi.evetech.net/latest/markets/";
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("Welcome to the Marketchecker");
-            int regionID = TradehubIDMap();
+            int regionID = ConsoleMain.TradehubIDMap();
             marketurl += regionID + "/orders/?datasource=tranquility&order_type=";
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("Do you want to Filter for for only [S]ell, [B]uy, or viel [A]ll orders?");
+            return marketurl;
+        }
+
+        public string OrderTypeInput() 
+        {
             ConsoleKeyInfo pressed = Console.ReadKey(true);
             string ordertype = "";
             switch (pressed.Key)
@@ -117,34 +137,8 @@ namespace EVEClassLibrary
                 default:
                     break;
             }
-            Console.WriteLine("Please enter the TypeID of the item you'd like to check (Optional)");
-            Console.ForegroundColor = ConsoleColor.White;
-            string typeid = Console.ReadLine();
-            int pagenum = 1;
-            marketurl += ordertype + "&page=" + pagenum + "&type_id=" + typeid;
-            string data = MarketRun(marketurl);
-            return data;
 
-        }
-
-        /// <summary>
-        /// Asks for Specific Tradehub informations
-        /// Currently Supports 4 Tradehubs
-        /// ID conversion in KeyToTradehub()
-        /// </summary>
-        /// <returns> the SystemID as Integer </returns>
-        public int TradehubIDMap()
-        {
-            int ret;
-            Console.WriteLine("Please Select the Region you'd like to check");
-            Console.WriteLine("[J]ita");
-            Console.WriteLine("[A]marr");
-            Console.WriteLine("[T]ash-Murkon");
-            Console.WriteLine("[R]ens");
-            ConsoleKeyInfo pressed = Console.ReadKey(true);
-            ret = KeyToTradehub(pressed.Key);
-
-            return ret;
+            return ordertype;
         }
 
         /// <summary>
@@ -171,7 +165,6 @@ namespace EVEClassLibrary
                     ret = 10000030;
                     break;
                 default:
-                    Console.WriteLine("No Valid Hub selected, Fallback to Jita 1-4");
                     ret = 10000002;
                     break;
             }
@@ -185,10 +178,6 @@ namespace EVEClassLibrary
         /// <returns>TypeCheck URL to SwaggerAPI</returns>
         public string TypeCheck()
         {
-            //Set color to green, as destinctive Coloration
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("Please enter the TypeID you want to check for:");
-
             //Create empty Class Object
             TypeInformation type;
             string typeId = Console.ReadLine();
