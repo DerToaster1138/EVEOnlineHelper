@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-	<Copyright>DiRex94 and DerToaster1138 "Tanam Rotsuda"</Copyright>
-	<Title>EVE Online Helper</Title>
+	  <Copyright>DiRex94 and DerToaster1138 "Tanam Rotsuda"</Copyright>
+	  <Title>EVE Online Helper</Title>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
@@ -19,6 +19,11 @@
     <EmbeddedResource Remove="EVEClassLibrary\**" />
     <None Remove="EVEClassLibrary\**" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <!--Mute some nullreference-related warnings. We know what NREs are and we deal with it but this logging in VSCode is too excessive right now-->
+    <NoWarn>CS8600,CS8601,CS8602,CS8603,CS8604,CS8605</NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

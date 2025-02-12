@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace EVEClassLibrary
 {
+    //TODO: CodeReview: Consider movingg datacontracts into their own sub-namespace
+
     /// <summary>
     /// Class for TypeInformation from Swagger API
     /// </summary>
