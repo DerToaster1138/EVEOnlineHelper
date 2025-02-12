@@ -1,4 +1,6 @@
-﻿namespace EVEClassLibrary
+﻿using System.Net.Http;
+
+namespace EVEClassLibrary
 {
     /// <summary>
     /// Class for Communication with the EVE Swagger API
@@ -10,7 +12,7 @@
         /// <summary>
         /// Openly usable Ripper instance
         /// </summary>
-        public JSONRipper ripper;
+        public JSONRipper ripper; //TODO: CodeReview: If this is supposed to be public please make this a Property with Getter instead
 
         /// <summary>
         /// Standard Constructor
@@ -28,7 +30,7 @@
         /// <returns>the JSON formatted response</returns>
         public string MarketRun(string url, int page = 0)
         {
-            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 string data = "";
 
@@ -60,6 +62,7 @@
                 // blank catch block, because noone stops me
                 catch
                 {
+                    //TODO: CodeReview: Consider adding some debug trace or any trace, otherwise issues in the block above might be hard to troubleshoot or even notice in the first place
                 }
 
                 List<MarketListing> orders = ripper.marketDataScraper(data);
@@ -94,6 +97,7 @@
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             string ordertype = OrderTypeInput();
             Console.ForegroundColor = ConsoleColor.White;
+            //TODO: CodeReview: Try to pull this prompt from here to ConsoleMain and provide the typeId as parameter for this function
             string typeid = ConsoleMain.getTypeIDInput();
             int pagenum = 1;
             marketurl += ordertype + "&page=" + pagenum + "&type_id=" + typeid;
@@ -191,7 +195,7 @@
             ret += "/?datasource=tranquility&language=en";
 
             //grab Data
-            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient()) 
+            using (HttpClient client = new HttpClient()) 
             {
                 ret = client.GetStringAsync(ret).Result;
             }

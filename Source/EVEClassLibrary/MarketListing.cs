@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 
 namespace EVEClassLibrary
 {
+    //TODO: CodeReview: Consider movingg datacontracts into their own sub-namespace
+
     /// <summary>
     /// EVE Online MarketOrder, which contains all possible Responses from the API
     /// </summary>
     public class MarketListing : IEnumerable<MarketListing>
     {
+        //TODO: CodeReview: MarketListing list and MarketListing item are of the same class. You might consider splitting this to avoid confusion and to be better expandable
+
         #region Field Declarations
         /// <summary>
         /// Duration in Days
@@ -91,6 +95,7 @@ namespace EVEClassLibrary
         /// <returns>an IEnumerator i guess?</returns>
         public IEnumerator<MarketListing> GetEnumerator()
         {
+            //TODO: CodeReview: If you redirector this this will allways return an empty list
             return listing.GetEnumerator();
         }
 
