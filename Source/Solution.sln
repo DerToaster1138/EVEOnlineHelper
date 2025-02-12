@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eve Console Tester", "Eve C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEClassLibrary", "EVEClassLibrary\EVEClassLibrary.csproj", "{0F9BE573-764C-4C83-9A46-B77D5EC6B13B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEMarketeerTest", "EVEMarketeerTest\EVEMarketeerTest.csproj", "{E8D5A0F8-B515-4AAC-A841-65732BDC2C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVEClassLibraryTests", "EVEClassLibraryTests\EVEClassLibraryTests.csproj", "{E8D5A0F8-B515-4AAC-A841-65732BDC2C41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
