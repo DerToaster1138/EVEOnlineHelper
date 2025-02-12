@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-	<Copyright>DiRex94 and DerToaster1138 "Tanam Rotsuda"</Copyright>
-	<Title>EVE Online Helper</Title>
+	  <Copyright>DiRex94 and DerToaster1138 "Tanam Rotsuda"</Copyright>
+	  <Title>EVE Online Helper</Title>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
