@@ -14,9 +14,9 @@ namespace EVEMarketeerTest
         public void formatter_working()
         {
             //Arrange
-            EVEClassLibrary.JSONRipper ripper = new JSONRipper();
-            WebClient client = new WebClient();
-            string input = client.DownloadString("https://esi.evetech.net/latest/status/?datasource=tranquility");
+            var ripper = new JSONRipper();
+            var client = new HttpClient();
+            string input = client.GetStringAsync("https://esi.evetech.net/latest/status/?datasource=tranquility").Result;
 
             //Act
             string result = ripper.formatter(input);
